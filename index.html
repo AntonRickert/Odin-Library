@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Odin-Library</title>
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="./app.css">
+</head>
+<body>
+    <div class="content">
+        <header>
+            <h1>Odin-Library</h1>
+            <button class="open-button" onclick="openForm()">New Book</button>
+        </header>
+        <main>
+            <div id="Book-Container"></div>
+        </main>
+        <div class="form-popup" id="myForm">
+            <form action="#" class="form-container">
+              <h1>New Book</h1>
+        
+              
+              <label for="name"><b>Book Name</b></label>
+              <input type="text" placeholder="Enter Book Name" name="name" id="title" required>
+          
+              <label for="author"><b>Author</b></label>
+              <input type="text" placeholder="Enter Book Author" name="author" id="author" required>
+          
+              <label for="pages"><b>Number of Pages</b> </label>
+              <input type="number" placeholder="Enter Number of Pages" name="pages" id="pageNum" required>
+
+              <div class="radio">
+                <label for="read">Read</label>
+                <input type="radio" id="read" name="read" value="read">
+                
+                <label for="notread">Not Read</label>
+                <input type="radio" id="notread" name="read" value="notread">
+              </div>
+              
+              <div class="popup">
+                <span class="popuptext" id="myPopup">Please fill in all Fields.</span>
+              </div> 
+              <button type="submit" id="SubmitBtn" class="btn">Add Book</button>
+              <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            </form>
+          </div>
+    </div>
+</body>
+</html>
