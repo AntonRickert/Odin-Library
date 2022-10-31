@@ -36,16 +36,68 @@ function BookMaker() {
     BookArr.push(BookProto);
     console.log(BookArr);
 
-    // BookToDisplay();
+    BookToDisplay();
 }
 
-// function BookToDisplay() {
-//     const card = document.createElement('div');
-//     card.className = 'Book-Card'
-//     card.innerHTML = BookArr[BookArr.length -1].name;
-//     BookContainer.appendChild(card);
-// }
+function BookToDisplay() {
+    const card = document.createElement('div');
+    card.className = 'Book-Card' + ' ' + 'num' + BookArr.length;
+    BookContainer.appendChild(card);
 
+    const title = document.createElement('div');
+    title.innerHTML = 'Book Title: ' + BookArr[BookArr.length - 1].name;
+    card.appendChild(title);
+
+    const author = document.createElement('div');
+    author.innerHTML = 'Book Author: ' + BookArr[BookArr.length - 1].author;
+    card.appendChild(author);
+
+    const length = document.createElement('div');
+    length.innerHTML = 'Book Length: ' + BookArr[BookArr.length - 1].pages;
+    card.appendChild(length);
+
+    const read = document.createElement('div');
+    read.innerHTML = 'Read: ' + BookArr[BookArr.length - 1].read;
+    card.appendChild(read);
+
+    const btnContainer = document.createElement('div')
+    btnContainer.className = 'btnContainer'
+    card.appendChild(btnContainer)
+
+    const readToggle = document.createElement('div');
+    readToggle.className = 'material-symbols-sharp';
+    if (BookArr[BookArr.length - 1].read === 'Yes') {
+        readToggle.className += ' selected'
+    }
+    readToggle.innerHTML = 'bookmark';
+    btnContainer.appendChild(readToggle);
+
+    const deleteCard = document.createElement('div');
+    deleteCard.className = 'material-symbols-sharp';
+    deleteCard.innerHTML = 'delete';
+    btnContainer.appendChild(deleteCard);
+
+    deleteCard.addEventListener('click', function() {
+        BookContainer.removeChild(card);
+    });
+
+    checkForReadChange(readToggle, read);
+    
+}
+
+
+function checkForReadChange(readToggle, read) {
+    readToggle.addEventListener('click', function() {
+        readToggle.classList.toggle('selected')
+        if (read.innerHTML === 'Read: Yes') {
+            read.innerHTML = 'Read: ' + 'No'
+        }
+        else if (read.innerHTML === 'Read: No'){
+            read.innerHTML = 'Read: ' + 'Yes'
+        } 
+    })
+    
+}
 
 function popup() {
     let popup = document.getElementById("myPopup");
